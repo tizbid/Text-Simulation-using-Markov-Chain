@@ -16,7 +16,7 @@ lines= new_year_quotes.split()
 #make 2-word sequence
 def make_pairs(lines):
     for i in range(len(lines)-1):
-        yield(cut[i], cut[i + 1])
+        yield(lines[i], lines[i + 1])
 
 pairs= make_pairs(lines)
 
