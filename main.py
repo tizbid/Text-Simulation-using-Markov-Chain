@@ -8,28 +8,38 @@ engine = pt.init()
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[0].id)
 
-#Speech extracts
-new_year_quotes = open('text.txt', encoding= 'utf8').read()
- 
-lines= new_year_quotes.split()
 
-#make 2-word sequence
+
+#extract quotes
+
+new_year_quotes = open('text.txt', encoding= 'utf8').read()
+lines= new_year_quotes.split()
+                                                                                                                                                                          
+
+#make word pairs
 def make_pairs(lines):
     for i in range(len(lines)-1):
         yield(lines[i], lines[i + 1])
+    
 
-pairs= make_pairs(lines)
+pairs = make_pairs(lines)
+ 
+#breakpoint()
 
-word_dict = {}
+word_dict = {}                             
+
+# Append word to dict
 
 for word_1, word_2 in pairs:
     if word_1 in word_dict.keys():
         word_dict[word_1].append(word_2)
-    
     else:
-        
         word_dict[word_1] = [word_2]
-    
+        
+       
+
+#breakpoint()
+
 first_word = np.random.choice(lines)
 
 
